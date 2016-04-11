@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import com.zxhy.xjl.rna.business.RealNameAuthBusiness;
+import com.zxhy.xjl.rna.business.RealNameAuthConfig;
 import com.zxhy.xjl.rna.business.RealNameAuthTask;
 import com.zxhy.xjl.rna.model.RealNameAuth;
 import com.zxhy.xjl.rna.service.RealNameAuthService;
@@ -22,6 +23,8 @@ public class RealNameAuthBusinessImpl implements RealNameAuthBusiness{
 	private static final String ProcessDefinitionKey = "realNameAuth";
 	@Autowired
 	private RealNameAuthService realNameAuthService;
+	@Autowired
+	private RealNameAuthConfig realNameAuthConfig;
 	@Autowired
 	private ProcessEngine processEngine;
 	public void register(String phone, String passwd) {
