@@ -1,7 +1,6 @@
 package com.zxhy.xjl.rna.business.impl;
 
 import java.util.List;
-
 import org.activiti.engine.impl.util.json.JSONArray;
 import org.activiti.engine.impl.util.json.JSONObject;
 import org.apache.commons.logging.Log;
@@ -10,13 +9,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
+import com.zxhy.support.workflow.ProcessEngine;
+import com.zxhy.support.workflow.impl.TaskInfo;
 import com.zxhy.xjl.rna.business.RealNameAuthBusiness;
 import com.zxhy.xjl.rna.business.RealNameAuthConfig;
 import com.zxhy.xjl.rna.business.RealNameAuthTask;
 import com.zxhy.xjl.rna.model.RealNameAuth;
 import com.zxhy.xjl.rna.service.RealNameAuthService;
-import com.zxhy.xjl.workflow.ProcessEngine;
-import com.zxhy.xjl.workflow.impl.TaskInfo;
 @Component("realNameAuthBusiness")
 public class RealNameAuthBusinessImpl implements RealNameAuthBusiness{
 	private static final Log log = LogFactory.getLog(RealNameAuthBusinessImpl.class);

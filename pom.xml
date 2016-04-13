@@ -126,9 +126,9 @@
 			<version>1.2.8</version>
 		</dependency>
 		<dependency>
-			<groupId>com.zxhy.xjl</groupId>
-			<artifactId>xjl-workflow</artifactId>
-			<version>0.0.1</version>
+			 <groupId>com.zxhy.support</groupId>
+			 <artifactId>workflow</artifactId>
+			 <version>0.0.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.codehaus.jackson</groupId>
