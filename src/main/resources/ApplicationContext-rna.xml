@@ -16,5 +16,5 @@
     <bean id="realNameAuthConfig" class="com.zxhy.xjl.rna.business.RealNameAuthConfig" >  
         <property name="usePeopleIDCheck" value="false"/>  
         <property name="useFaceCheck" value="false" />   
-    </bean>    
+    </bean>
 </beans>  
