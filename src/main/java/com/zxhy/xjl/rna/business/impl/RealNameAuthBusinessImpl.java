@@ -42,15 +42,19 @@ public class RealNameAuthBusinessImpl implements RealNameAuthBusiness{
 		this.processEngine.completeTask(task.getTaskId(), null);
 	}
 
-	public boolean logon(String phone, String passwd) {
+	public String logon(String phone, String passwd) {
+		System.out.println(phone+passwd);
 		RealNameAuth realNameAuth = this.realNameAuthService.findByPhone(phone);
 		if (realNameAuth == null){
-			throw new RuntimeException("账户不存在");
+			log.debug("账户不存在");
+			return "accountNotExist";
 		}
 		if (!passwd.equals(realNameAuth.getPasswd())){
-			throw new RuntimeException("密码号账户不匹配");
+			log.debug("密码错误");
+			return "passwordError";
 		}
-		return true;
+		log.debug("登录成功");
+		return "success";
 	}
 	public void checkRegister(String phone, String taskId){
 		this.processEngine.completeTask(taskId, null);

@@ -14,7 +14,7 @@ public interface RealNameAuthBusiness {
 	 * @param passwd
 	 * @return
 	 */
-	public boolean logon(String phone, String passwd);
+	public String logon(String phone, String passwd);
 	/**
 	 * 补充完成注册流程
 	 * @param phone
