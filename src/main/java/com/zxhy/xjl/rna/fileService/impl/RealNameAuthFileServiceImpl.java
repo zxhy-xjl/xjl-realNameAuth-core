@@ -8,7 +8,6 @@ import com.zxhy.xjl.rna.fileService.RealNameAuthFileService;
 @Component("RealNameAuthFileService")
 public class RealNameAuthFileServiceImpl implements RealNameAuthFileService {
 
-
 	/**
 	 *上传文件
 	 */

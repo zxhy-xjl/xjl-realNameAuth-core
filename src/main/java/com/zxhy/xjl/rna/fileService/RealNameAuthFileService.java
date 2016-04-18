@@ -6,5 +6,5 @@ public interface RealNameAuthFileService {
 	/**
 	 * 上传图片
 	 */
-	public void doUploadImage(MultipartFile file,String outPath);
+	public void doUploadImage(MultipartFile file,String outPath); 
 }
