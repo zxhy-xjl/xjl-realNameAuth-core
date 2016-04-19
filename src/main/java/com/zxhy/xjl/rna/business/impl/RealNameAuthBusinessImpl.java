@@ -7,8 +7,6 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
-
 import com.zxhy.support.workflow.ProcessEngine;
 import com.zxhy.support.workflow.impl.TaskInfo;
 import com.zxhy.xjl.rna.business.RealNameAuthBusiness;
