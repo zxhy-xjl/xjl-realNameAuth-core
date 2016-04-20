@@ -47,5 +47,12 @@ public interface RealNameAuthBusiness {
 	 */
 	public RealNameAuthTask getRealNameAuthTask(String phone);
 	
+	/**
+	 * 得到注册到那个环节
+	 * @param phone
+	 * @return
+	 */
+	public RealNameAuthTask getRegisterLinkByPhone(String phone);
+	
 	
 }

@@ -86,4 +86,10 @@ public class RealNameAuthBusinessImpl implements RealNameAuthBusiness{
 		return null;
 	}
 	
+	public RealNameAuthTask getRegisterLinkByPhone(String phone){
+		
+		return this.realNameAuthService.getRegisterLinkByPhone(phone);
+		
+	}
+	
 }
