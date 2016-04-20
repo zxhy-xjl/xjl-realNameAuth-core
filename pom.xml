@@ -122,7 +122,7 @@
 			<version>1.2.8</version>
 		</dependency>
 		<dependency>
-			 <groupId>com.zxhy.support</groupId>
+			 <groupId>com.zxhy.xjl</groupId>
 			 <artifactId>workflow</artifactId>
 			 <version>0.0.1</version>
 		</dependency>
@@ -159,7 +159,7 @@
 	</build>
 	<distributionManagement>
 		<repository>
-			<id>releases</id>
+			<id>user-releases</id>
 			<url>http://139.196.174.28:8081/nexus/content/repositories/releases</url>
 		</repository>
 	</distributionManagement>
