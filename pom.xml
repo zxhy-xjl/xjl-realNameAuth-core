@@ -123,7 +123,7 @@
 		</dependency>
 		<dependency>
 			 <groupId>com.zxhy.xjl</groupId>
-			 <artifactId>workflow</artifactId>
+			 <artifactId>xjl-workflow</artifactId>
 			 <version>0.0.1</version>
 		</dependency>
 		<dependency>
@@ -154,6 +154,19 @@
 					<target>1.8</target>
 					<encoding>${file_encoding}</encoding>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>jar-no-fork</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
