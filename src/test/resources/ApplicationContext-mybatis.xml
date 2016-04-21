@@ -49,22 +49,4 @@
         <property name="dataSource" ref="dataSource"></property>  
     </bean> 
     
-     <!-- 基于视图渲染进行协商资源表述  -->
-	  <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
-		<!-- 采用对应的视图进行渲染  -->
-		<property name="viewResolvers">
-		    <list >
-		    	<!-- 查找在上下文中定义了ID的Bean，并且定位该ID  -->
-		        <bean class="org.springframework.web.servlet.view.BeanNameViewResolver"/>
-		        <!-- 对Controller中返回的视图实例进行解析，并且组装URL定位到对应的资源  -->
-		        <bean id="viewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
-					<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
-					<property name="prefix" value="/view/"/>
-					<property name="suffix" value=".html"/>
-				</bean>
-		    </list>
-		</property>
-	  </bean> 
-	   <!-- 支持上传文件 -->  
-   <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>  
 </beans>  

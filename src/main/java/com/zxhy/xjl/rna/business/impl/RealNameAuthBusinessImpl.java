@@ -10,7 +10,6 @@ import org.springframework.stereotype.Component;
 import com.zxhy.xjl.workflow.ProcessEngine;
 import com.zxhy.xjl.workflow.impl.TaskInfo;
 import com.zxhy.xjl.rna.business.RealNameAuthBusiness;
-import com.zxhy.xjl.rna.business.RealNameAuthConfig;
 import com.zxhy.xjl.rna.business.RealNameAuthTask;
 import com.zxhy.xjl.rna.model.RealNameAuth;
 import com.zxhy.xjl.rna.service.RealNameAuthService;
@@ -20,8 +19,7 @@ public class RealNameAuthBusinessImpl implements RealNameAuthBusiness{
 	private static final String ProcessDefinitionKey = "realNameAuth";
 	@Autowired
 	private RealNameAuthService realNameAuthService;
-	@Autowired
-	private RealNameAuthConfig realNameAuthConfig;
+	
 	@Autowired
 	private ProcessEngine processEngine;
 	public void register(String phone, String passwd) {
@@ -39,20 +37,19 @@ public class RealNameAuthBusinessImpl implements RealNameAuthBusiness{
 		//完成第一步注册，到核名环节
 		this.processEngine.completeTask(task.getTaskId(), null);
 	}
-
-	public String logon(String phone, String passwd) {
-		System.out.println(phone+passwd);
+	
+	public boolean logon(String phone, String passwd) {
+		log.debug("登陆  phone:" + phone + " passwd:" + passwd);
 		RealNameAuth realNameAuth = this.realNameAuthService.findByPhone(phone);
+		//通过异常抛出方式，而不是使用字符串进行区分
 		if (realNameAuth == null){
-			log.debug("账户不存在");
-			return "accountNotExist";
+			throw new RuntimeException("用户名称（手机号码）不存在");
 		}
 		if (!passwd.equals(realNameAuth.getPasswd())){
-			log.debug("密码错误");
-			return "passwordError";
+			throw new RuntimeException("用户名称和密码不匹配");
 		}
 		log.debug("登录成功");
-		return "success";
+		return true;
 	}
 	public void checkRegister(String phone, String taskId){
 		this.processEngine.completeTask(taskId, null);
