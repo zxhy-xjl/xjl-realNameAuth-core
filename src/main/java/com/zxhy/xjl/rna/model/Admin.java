@@ -2,7 +2,7 @@ package com.zxhy.xjl.rna.model;
 
 /**
  * 管理员 
- * @author   yangzaixiong
+ * @author  yangzaixiong
  * 
  */
 public class Admin {
