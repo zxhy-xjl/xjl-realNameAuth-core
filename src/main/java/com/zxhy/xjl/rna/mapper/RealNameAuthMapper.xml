@@ -26,7 +26,13 @@
 	<select id="findByPhone" resultType="com.zxhy.xjl.rna.model.RealNameAuth" parameterType="String">
 		select phone,passwd,id_code,id_name,id_photo_url,face_url from real_name_auth where phone=#{phone}
 	</select>
+	<select id="getRegisterLinkByPhone" resultType="com.zxhy.xjl.rna.business.RealNameAuthTask" parameterType="String">
+		select  phone,taskName from real_name_auth_task where phone=#{phone}
+	</select>
 	<delete id="delete" parameterType="string">
 		delete from real_name_auth where phone=#{phone}
 	</delete>
+	<select id="adminLogin" resultType="com.zxhy.xjl.rna.model.Admin" parameterType="String">
+		select  accountNumber,passwd from admin where accountNumber=#{accountNumber}
+	</select>
 </mapper>

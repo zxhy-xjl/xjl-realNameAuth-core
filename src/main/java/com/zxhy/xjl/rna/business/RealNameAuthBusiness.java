@@ -54,5 +54,12 @@ public interface RealNameAuthBusiness {
 	 */
 	public RealNameAuthTask getRegisterLinkByPhone(String phone);
 	
+	/**
+	 * 管理员登录
+	 * @param phone
+	 * @return
+	 */
+	public boolean adminLogon(String accountNumber, String passwd);
+	
 	
 }

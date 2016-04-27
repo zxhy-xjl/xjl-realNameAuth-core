@@ -1,5 +1,7 @@
 package com.zxhy.xjl.rna.mapper;
 
+import com.zxhy.xjl.rna.business.RealNameAuthTask;
+import com.zxhy.xjl.rna.model.Admin;
 import com.zxhy.xjl.rna.model.RealNameAuth;
 
 /**
@@ -15,4 +17,6 @@ public interface RealNameAuthMapper {
 	void updateFace(RealNameAuth realNameAuth);
 	RealNameAuth findByPhone(String phone);
 	void delete(String phone);
+    RealNameAuthTask getRegisterLinkByPhone(String phone);
+    Admin adminLogin(String accountNumber);
 }

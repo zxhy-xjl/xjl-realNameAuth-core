@@ -1,5 +1,7 @@
 package com.zxhy.xjl.rna.service;
 
+import com.zxhy.xjl.rna.business.RealNameAuthTask;
+import com.zxhy.xjl.rna.model.Admin;
 import com.zxhy.xjl.rna.model.RealNameAuth;
 
 /**
@@ -19,4 +21,6 @@ public interface RealNameAuthService {
 	public void updateFace(String phone, String faceUrl);
 	public void delete(String phone);
 	public RealNameAuth findByPhone(String phone);
+	public RealNameAuthTask getRegisterLinkByPhone(String phone);
+	public Admin adminLogin(String accountNumber);
 }

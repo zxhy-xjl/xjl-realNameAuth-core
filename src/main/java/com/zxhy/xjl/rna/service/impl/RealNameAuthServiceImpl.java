@@ -3,7 +3,9 @@ package com.zxhy.xjl.rna.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.zxhy.xjl.rna.business.RealNameAuthTask;
 import com.zxhy.xjl.rna.mapper.RealNameAuthMapper;
+import com.zxhy.xjl.rna.model.Admin;
 import com.zxhy.xjl.rna.model.RealNameAuth;
 import com.zxhy.xjl.rna.service.RealNameAuthService;
 @Service("realNameAuthService")
@@ -36,7 +38,7 @@ public class RealNameAuthServiceImpl implements RealNameAuthService {
 	public void delete(String phone) {
 		this.mapper.delete(phone);
 	}
-	
+
 	public RealNameAuth findByPhone(String phone) {
 		return this.mapper.findByPhone(phone);
 	}
@@ -48,5 +50,16 @@ public class RealNameAuthServiceImpl implements RealNameAuthService {
 		realNameAuth.setIdCode(idCode);
 		realNameAuth.setIdName(idName);
 		this.mapper.updateRealName(realNameAuth);
+	}
+
+	@Override
+	public RealNameAuthTask getRegisterLinkByPhone(String phone) {
+		
+		return this.mapper.getRegisterLinkByPhone(phone);
+	}
+
+	@Override
+	public Admin adminLogin(String accountNumber) {
+		return this.mapper.adminLogin(accountNumber);
 	}
 }

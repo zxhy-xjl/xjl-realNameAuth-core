@@ -11,6 +11,7 @@ import com.zxhy.xjl.workflow.ProcessEngine;
 import com.zxhy.xjl.workflow.impl.TaskInfo;
 import com.zxhy.xjl.rna.business.RealNameAuthBusiness;
 import com.zxhy.xjl.rna.business.RealNameAuthTask;
+import com.zxhy.xjl.rna.model.Admin;
 import com.zxhy.xjl.rna.model.RealNameAuth;
 import com.zxhy.xjl.rna.service.RealNameAuthService;
 @Component("realNameAuthBusiness")
@@ -87,6 +88,21 @@ public class RealNameAuthBusinessImpl implements RealNameAuthBusiness{
 		
 		return this.realNameAuthService.getRegisterLinkByPhone(phone);
 		
+	}
+
+	@Override
+	public boolean adminLogon(String accountNumber,String passwd) {
+		log.debug("登陆  accountNumber:" + accountNumber + " passwd:" + passwd);
+		Admin admin = this.realNameAuthService.adminLogin(accountNumber);
+		//通过异常抛出方式，而不是使用字符串进行区分
+		if (admin == null){
+			throw new RuntimeException("账号不存在");
+		}
+		if (!passwd.equals(admin.getPasswd())){
+			throw new RuntimeException("账号和密码不匹配");
+		}
+		log.debug("登录成功");
+		return true;
 	}
 	
 }
