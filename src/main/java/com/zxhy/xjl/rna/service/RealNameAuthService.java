@@ -19,6 +19,7 @@ public interface RealNameAuthService {
 	public void updateRealName(String phone, String idCode, String idName);
 	public void updatePhoto(String phone, String photoUrl);
 	public void updateFace(String phone, String faceUrl);
+	public void updatePassword(String phone,String password);
 	public void delete(String phone);
 	public RealNameAuth findByPhone(String phone);
 	public RealNameAuthTask getRegisterLinkByPhone(String phone);

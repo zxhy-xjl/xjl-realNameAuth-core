@@ -62,4 +62,12 @@ public class RealNameAuthServiceImpl implements RealNameAuthService {
 	public Admin adminLogin(String accountNumber) {
 		return this.mapper.adminLogin(accountNumber);
 	}
+	
+	@Override
+	public void updatePassword(String phone, String password) { 
+		RealNameAuth realNameAuth = new RealNameAuth();
+		realNameAuth.setPhone(phone);
+		realNameAuth.setPasswd(password);
+		this.mapper.updatePassword(realNameAuth);
+	}
 }
