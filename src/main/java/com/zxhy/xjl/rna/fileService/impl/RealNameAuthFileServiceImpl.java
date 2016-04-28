@@ -6,8 +6,8 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
-
 import com.zxhy.xjl.rna.fileService.RealNameAuthFileService;
+import sun.misc.BASE64Decoder;
 @Component("RealNameAuthFileService")
 public class RealNameAuthFileServiceImpl   implements RealNameAuthFileService  {
 
@@ -54,5 +54,33 @@ public class RealNameAuthFileServiceImpl   implements RealNameAuthFileService  {
 		int fileNameLen = fileName.lastIndexOf(".");//获取后缀名.的位置
 		String fileExtension=fileName.substring(fileNameLen, fileName.length());//截取后缀名
 		return name+""+fileExtension;//返回新名称
+	}
+	
+	/**
+	 * 将Base64编码的字符串转化成图片
+	 */
+	@Override
+	public boolean Base64StringToImage(String imgText,String outPath,String name) {
+		boolean flag = false;
+		BASE64Decoder decoder = new BASE64Decoder();		
+		try {
+			// Base64解码
+			byte[] byteImg = decoder.decodeBuffer(imgText);
+			for (int i = 0; i < byteImg.length; ++i) {
+					if (byteImg[i] < 0) {// 调整异常数据
+						byteImg[i] += 256;
+					}
+			}
+			//生成新图片并且输出
+			OutputStream out = new FileOutputStream(outPath+""+name);
+			out.write(byteImg);
+			out.flush();
+			out.close();
+			flag = true;
+		} catch (IOException e) {
+			e.printStackTrace();
+			flag = false;
+		}
+		return flag;
 	}
 }

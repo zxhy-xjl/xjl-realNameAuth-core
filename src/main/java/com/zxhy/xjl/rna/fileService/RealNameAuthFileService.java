@@ -18,4 +18,9 @@ public interface RealNameAuthFileService {
 	 * @return 返回新名称
 	 */
 	public String doChangeFileName(MultipartFile file,String name);
+	/**
+	 * 将Base64编码的字符串转化成图片
+	 * @param imgText
+	 */
+	public boolean Base64StringToImage(String imgText,String outPath,String name);
 }
