@@ -15,7 +15,7 @@ public class RealNameAuthFileServiceImpl   implements RealNameAuthFileService  {
 	 *上传文件
 	 */
 	@Override
-	public void doUploadImage(MultipartFile file,String outPath, String name) {
+	public void doUploadFile(MultipartFile file,String outPath, String name) {
 		// TODO Auto-generated method stub
 		OutputStream os = null;//输出流
 		InputStream is = null;//输入流

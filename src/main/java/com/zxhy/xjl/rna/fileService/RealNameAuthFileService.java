@@ -10,7 +10,7 @@ public interface RealNameAuthFileService {
 	 * @param outPath 输出路径
 	 * @param name 名称
 	 */
-	public void doUploadImage(MultipartFile file,String outPath,String name);
+	public void doUploadFile(MultipartFile file,String outPath,String name);
 	/**
 	 * 替换文件名称
 	 * @param file 文件
