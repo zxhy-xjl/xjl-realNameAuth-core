@@ -1,5 +1,9 @@
 package com.zxhy.xjl.rna.business;
 
+import java.util.List;
+
+import com.zxhy.xjl.rna.model.ManualAudit;
+
 public interface RealNameAuthBusiness {
 	
 	/**
@@ -60,6 +64,20 @@ public interface RealNameAuthBusiness {
 	 * @return
 	 */
 	public boolean adminLogon(String accountNumber, String passwd);
+	
+	/**
+	 * 人工审核列表
+	 * @param phone
+	 * @return
+	 */
+	public List<ManualAudit> manualAudit(String processname);
+	
+	/**
+	 * 修改审核状态
+	 * @param phone
+	 * @return
+	 */
+	public void manualAuditState(String phone,String processname);
 	
 	
 }

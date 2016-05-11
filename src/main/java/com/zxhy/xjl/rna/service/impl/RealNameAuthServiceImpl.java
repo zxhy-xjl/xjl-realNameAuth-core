@@ -1,11 +1,14 @@
 package com.zxhy.xjl.rna.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.zxhy.xjl.rna.business.RealNameAuthTask;
 import com.zxhy.xjl.rna.mapper.RealNameAuthMapper;
 import com.zxhy.xjl.rna.model.Admin;
+import com.zxhy.xjl.rna.model.ManualAudit;
 import com.zxhy.xjl.rna.model.RealNameAuth;
 import com.zxhy.xjl.rna.service.RealNameAuthService;
 @Service("realNameAuthService")
@@ -69,5 +72,36 @@ public class RealNameAuthServiceImpl implements RealNameAuthService {
 		realNameAuth.setPhone(phone);
 		realNameAuth.setPasswd(password);
 		this.mapper.updatePassword(realNameAuth);
+	}
+
+	@Override
+	public List<ManualAudit> manualAudit(String processname) {
+		if(processname.equals("1")){
+			processname="审核中";
+		}
+		if(processname.equals("2")){
+			processname="审核通过";
+		}
+		if(processname.equals("3")){
+			processname="审核不通过";
+		}
+		if(null!=this.mapper.manualAudit(processname)){
+			return this.mapper.manualAudit(processname);
+		}
+		return null;
+	}
+
+	@Override
+	public void manualAuditState(String phone, String processname) {
+		if(processname.equals("yes")){
+			processname="审核通过";
+		}
+		if(processname.equals("no")){
+			processname="审核不通过";
+		}
+		ManualAudit manualAudit=new ManualAudit();
+		manualAudit.setPhone(phone);
+		manualAudit.setProcessname(processname);
+		this.mapper.updateManualAuditState(manualAudit);
 	}
 }

@@ -1,8 +1,11 @@
 package com.zxhy.xjl.rna.service;
 
+import java.util.List;
+
 import com.zxhy.xjl.rna.business.RealNameAuthTask;
 import com.zxhy.xjl.rna.model.Admin;
 import com.zxhy.xjl.rna.model.RealNameAuth;
+import com.zxhy.xjl.rna.model.ManualAudit;
 
 /**
  * 实名认证服务接口
@@ -24,4 +27,6 @@ public interface RealNameAuthService {
 	public RealNameAuth findByPhone(String phone);
 	public RealNameAuthTask getRegisterLinkByPhone(String phone);
 	public Admin adminLogin(String accountNumber);
+	public List<ManualAudit> manualAudit(String processname);
+	public void manualAuditState(String phone,String processname);
 }

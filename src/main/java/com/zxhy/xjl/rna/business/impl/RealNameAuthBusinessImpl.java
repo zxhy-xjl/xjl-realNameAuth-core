@@ -14,6 +14,7 @@ import com.zxhy.xjl.rna.business.RealNameAuthTask;
 import com.zxhy.xjl.rna.model.Admin;
 import com.zxhy.xjl.rna.model.RealNameAuth;
 import com.zxhy.xjl.rna.service.RealNameAuthService;
+import com.zxhy.xjl.rna.model.ManualAudit;
 @Component("realNameAuthBusiness")
 public class RealNameAuthBusinessImpl implements RealNameAuthBusiness{
 	private static final Log log = LogFactory.getLog(RealNameAuthBusinessImpl.class);
@@ -103,6 +104,20 @@ public class RealNameAuthBusinessImpl implements RealNameAuthBusiness{
 		}
 		log.debug("登录成功");
 		return true;
+	}
+
+	@Override
+	public List<ManualAudit> manualAudit(String processname) {
+		if (null!=this.realNameAuthService.manualAudit(processname)){
+			return  this.realNameAuthService.manualAudit(processname);
+		}
+		return  null;
+	}
+
+	@Override
+	public void manualAuditState(String phone, String processname) {
+		this.realNameAuthService.manualAuditState(phone,processname);
+		
 	}
 	
 }

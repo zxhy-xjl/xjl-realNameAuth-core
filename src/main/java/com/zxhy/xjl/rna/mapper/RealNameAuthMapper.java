@@ -1,7 +1,10 @@
 package com.zxhy.xjl.rna.mapper;
 
+import java.util.List;
+
 import com.zxhy.xjl.rna.business.RealNameAuthTask;
 import com.zxhy.xjl.rna.model.Admin;
+import com.zxhy.xjl.rna.model.ManualAudit;
 import com.zxhy.xjl.rna.model.RealNameAuth;
 
 /**
@@ -19,4 +22,6 @@ public interface RealNameAuthMapper {
 	void delete(String phone);
     RealNameAuthTask getRegisterLinkByPhone(String phone);
     Admin adminLogin(String accountNumber);
+    List<ManualAudit> manualAudit(String manualAudit);
+    void updateManualAuditState(ManualAudit manualAudit);
 }

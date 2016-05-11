@@ -35,4 +35,10 @@
 	<select id="adminLogin" resultType="com.zxhy.xjl.rna.model.Admin" parameterType="String">
 		select  accountNumber,passwd from admin where accountNumber=#{accountNumber}
 	</select>
+	<select id="manualAudit" resultType="com.zxhy.xjl.rna.model.ManualAudit" parameterType="String">
+	 select  a.ID_CODE ID_CODE,a.phone phone,a.id_name id_name ,b.processname processname,a.face_url face_url ,a.id_photo_url id_photo_url from REAL_NAME_AUTH  a ,REAL_NAME_AUTH_TASK  b where a.PHONE=b.PHONE and b.PROCESSNAME=#{PROCESSNAME}
+	 </select>
+	 <update id="updateManualAuditState" parameterType="com.zxhy.xjl.rna.model.ManualAudit" >
+		update REAL_NAME_AUTH_TASK set processname=#{processname},taskname=#{processname} where phone=#{phone}
+	</update>
 </mapper>
