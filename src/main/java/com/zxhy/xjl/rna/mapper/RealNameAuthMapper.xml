@@ -40,5 +40,5 @@
 	 </select>
 	 <update id="updateManualAuditState" parameterType="com.zxhy.xjl.rna.model.ManualAudit" >
 		update REAL_NAME_AUTH_TASK set processname=#{processname},taskname=#{processname} where phone=#{phone}
-	</update>
+	</update> 
 </mapper>

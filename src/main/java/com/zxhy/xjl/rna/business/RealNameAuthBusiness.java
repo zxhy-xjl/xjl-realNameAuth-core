@@ -77,7 +77,7 @@ public interface RealNameAuthBusiness {
 	 * @param phone
 	 * @return
 	 */
-	public void manualAuditState(String phone,String processname);
+	public void manualAuditState(String phone, String processname);
 	
 	
 }

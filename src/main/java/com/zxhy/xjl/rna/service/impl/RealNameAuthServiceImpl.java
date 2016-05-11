@@ -103,5 +103,5 @@ public class RealNameAuthServiceImpl implements RealNameAuthService {
 		manualAudit.setPhone(phone);
 		manualAudit.setProcessname(processname);
 		this.mapper.updateManualAuditState(manualAudit);
-	}
+	} 
 }

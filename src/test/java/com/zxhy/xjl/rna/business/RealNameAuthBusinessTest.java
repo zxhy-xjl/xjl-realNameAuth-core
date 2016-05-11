@@ -12,7 +12,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 public class RealNameAuthBusinessTest {
 	@Autowired
 	private RealNameAuthBusiness business;
-	@Test
+	/*@Test
 	public void register(){
 		this.business.register("18900", "123456");
 	}
@@ -21,5 +21,9 @@ public class RealNameAuthBusinessTest {
 		RealNameAuthTask task  = this.business.getRealNameAuthTask("18900");
 		Assert.assertNotNull(task);
 		Assert.assertEquals("核名", task.getTaskName());
+	}*/
+	@Test
+	public void getRealNameAuthTask(){
+		System.out.println(this.business.manualAudit("注册"));
 	}
 }

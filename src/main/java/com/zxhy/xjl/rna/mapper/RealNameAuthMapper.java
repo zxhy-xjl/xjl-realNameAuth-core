@@ -23,5 +23,5 @@ public interface RealNameAuthMapper {
     RealNameAuthTask getRegisterLinkByPhone(String phone);
     Admin adminLogin(String accountNumber);
     List<ManualAudit> manualAudit(String manualAudit);
-    void updateManualAuditState(ManualAudit manualAudit);
+    void updateManualAuditState(ManualAudit  manualAudit);
 }

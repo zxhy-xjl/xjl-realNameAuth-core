@@ -28,5 +28,5 @@ public interface RealNameAuthService {
 	public RealNameAuthTask getRegisterLinkByPhone(String phone);
 	public Admin adminLogin(String accountNumber);
 	public List<ManualAudit> manualAudit(String processname);
-	public void manualAuditState(String phone,String processname);
+	public void manualAuditState(String phone,String processname); 
 }

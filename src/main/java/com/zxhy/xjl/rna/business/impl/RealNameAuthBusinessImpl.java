@@ -116,7 +116,7 @@ public class RealNameAuthBusinessImpl implements RealNameAuthBusiness{
 
 	@Override
 	public void manualAuditState(String phone, String processname) {
-		this.realNameAuthService.manualAuditState(phone,processname);
+		this.realNameAuthService.manualAuditState(phone, processname);
 		
 	}
 	
